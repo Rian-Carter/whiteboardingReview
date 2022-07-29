@@ -18,3 +18,16 @@ function deduping(array){
 console.log(deduping([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
 
 // recursive attempt
+function dedupingRecursive(array){
+  const crossReference = array.slice(0, array.length -1);
+  const checkElement = array[array.length -1];
+  if (array.length === 0) {
+    return array;
+  } else if (crossReference.includes(checkElement)) {
+    return dedupingRecursive(crossReference);
+  } else {
+    return [...dedupingRecursive(crossReference), checkElement];
+  }
+};
+
+console.log(dedupingRecursive([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
