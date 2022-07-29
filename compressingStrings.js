@@ -24,7 +24,7 @@ function compress(string){
   return output;
 };
 
-console.log(compress("aaabccdddda")); //3ab2c4da
+console.log(compress("aaabccdddda"));
 
 //recursive attempt
 function compressRecursive(string){
@@ -39,4 +39,4 @@ function compressRecursive(string){
   }
 };
 
-console.log(compressRecursive("aaabccdddda"));
+console.log(compressRecursive("aaabccdddda")); //3ab2c4da
