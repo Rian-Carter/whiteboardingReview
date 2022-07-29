@@ -7,3 +7,17 @@
 // Input: "Jasmine Ann Jones"
 
 // Output: "Jasmine%20Ann%20Jones"
+
+
+function replaceSpace(string){
+  let newString = "";
+  for(let i = 0; i < string.length; i++){
+    if(string[i]===" "){
+      newString = newString + "%20"
+    } else {
+      newString = newString + string[i];
+    }
+    console.log("Jasmine Ann Jones" + newString)
+  }
+  console.log(newString)
+};
