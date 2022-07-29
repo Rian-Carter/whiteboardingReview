@@ -21,3 +21,23 @@ function replaceSpace(string){
   }
   console.log(newString)
 };
+
+// recursion attempt
+// w3schools.com
+// The substring() method extracts characters, between two indices (positions), from a string, and returns the substring.
+// The substring() method extracts characters from start to end (exclusive).
+// The substring() method does not change the original string.
+
+const replaceSpaceRecurse = (string) => {
+  if (string === "") {
+    return string;
+  } else if (string[0] === " ") {
+    return "%20" + replaceSpaceRecurse(string.substring(1));
+  } else {
+    return string[0] + replaceSpaceRecurse(string.substring(1));
+  }
+};
+
+// test
+console.log(replaceSpaceRecurse("Jasmine Ann Jones")); // "Jasmine%20Ann%20Jones"
+console.log(replaceSpace("Jasmine Ann Jones")); // "Jasmine%20Ann%20Jones"
