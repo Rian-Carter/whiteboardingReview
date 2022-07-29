@@ -6,3 +6,15 @@
 // Input: [7, 9, "hi", 12, "hi" 7, 53]
 // Output: [7, 9, "hi", 12, 53]
 
+// iterative attempt
+function deduping(array){
+  let output = [];
+  array.forEach((element, i) => {
+    if (!array.slice(0, i).includes(element)) output.push(element);
+  });
+  return output;
+};
+
+console.log(deduping([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
+
+// recursive attempt
