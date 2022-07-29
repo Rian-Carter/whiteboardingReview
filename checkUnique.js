@@ -21,3 +21,5 @@ function uniqueness(string){ //creates a function 'uniqueness' that takes 'strin
 
 console.log(uniqueness('hello'));
 console.log(uniqueness('copyright'));
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring

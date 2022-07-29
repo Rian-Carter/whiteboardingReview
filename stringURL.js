@@ -28,6 +28,7 @@ function replaceSpace(string){
 // The substring() method extracts characters, between two indices (positions), from a string, and returns the substring.
 // The substring() method extracts characters from start to end (exclusive).
 // The substring() method does not change the original string.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
 
 function replaceSpaceRecurse(string){ //create function 'replaceSpaceRecurse' that takes 'string' as an argument.
   if (string === "") { //base case for string being empty
