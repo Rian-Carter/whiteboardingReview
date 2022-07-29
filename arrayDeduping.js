@@ -19,16 +19,16 @@ console.log(deduping([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
 
 // recursive attempt
 function dedupingRecursive(array){ //creates function 'dudupingRecursive' that takes 'array' as an argument
-  const crossReference = array.slice(0, array.length -1); //variable that takes array and slices it at index 0 and shortens array length by 1
+  const crossReference = array.slice(0, array.length -1); //variable that slices an array at index 0 with a -1 end point. This creates an offset to extract the last element in the sequence
   // console.log(crossReference);
   const checkElement = array[array.length -1]; //variable
   // console.log(checkElement);
-  if (array.length === 0) {
+  if (array.length === 0) { //base case to return an array once it's empty
     return array;
-  } else if (crossReference.includes(checkElement)) {
-    return dedupingRecursive(crossReference);
+  } else if (crossReference.includes(checkElement)) { //checks to see if the array contains an element
+    return dedupingRecursive(crossReference); //calls original function taking 'crossReference' as an argument
   } else {
-    return [...dedupingRecursive(crossReference), checkElement];
+    return [...dedupingRecursive(crossReference), checkElement]; //returns a shallow clone of original function with 'crossReference' 
   }
 };
 
