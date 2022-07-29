@@ -18,9 +18,11 @@ function deduping(array){
 console.log(deduping([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
 
 // recursive attempt
-function dedupingRecursive(array){
-  const crossReference = array.slice(0, array.length -1);
-  const checkElement = array[array.length -1];
+function dedupingRecursive(array){ //creates function 'dudupingRecursive' that takes 'array' as an argument
+  const crossReference = array.slice(0, array.length -1); //variable that takes array and slices it at index 0 and shortens array length by 1
+  // console.log(crossReference);
+  const checkElement = array[array.length -1]; //variable
+  // console.log(checkElement);
   if (array.length === 0) {
     return array;
   } else if (crossReference.includes(checkElement)) {
