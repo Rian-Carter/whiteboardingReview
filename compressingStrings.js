@@ -40,3 +40,6 @@ function compressRecursive(string){
 };
 
 console.log(compressRecursive("aaabccdddda")); //3ab2c4da
+
+// https://rebecca-ap-rosenberg.medium.com/string-compression-algorithm-javascript-style-c0213dbc94ad
+// https://www.youtube.com/watch?v=Q0alTGQ-lXk
