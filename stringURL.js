@@ -16,10 +16,11 @@ function replaceSpace(string){
       newString = newString + string[i];
     }
   }
+  return newString;
 };
 
 //test
-console.log(replaceSpace("Jasmine Ann Jones")); // "Jasmine%20Ann%20Jones"
+
 
 
 // recursion attempt
@@ -39,4 +40,5 @@ const replaceSpaceRecurse = (string) => {
 };
 
 // test
+console.log(replaceSpace("Jasmine Ann Jones")); // "Jasmine%20Ann%20Jones"
 console.log(replaceSpaceRecurse("Jasmine Ann Jones")); // "Jasmine%20Ann%20Jones"
