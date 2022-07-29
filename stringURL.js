@@ -29,13 +29,13 @@ function replaceSpace(string){
 // The substring() method extracts characters from start to end (exclusive).
 // The substring() method does not change the original string.
 
-const replaceSpaceRecurse = (string) => {
-  if (string === "") {
-    return string;
-  } else if (string[0] === " ") {
-    return "%20" + replaceSpaceRecurse(string.substring(1));
+function replaceSpaceRecurse(string){ //create function 'replaceSpaceRecurse' that takes 'string' as an argument.
+  if (string === "") { //base case for string being empty
+    return string; //if string is empty, return it
+  } else if (string[0] === " ") { //check to see if index 0 is an empty space
+    return "%20" + replaceSpaceRecurse(string.substring(1)); //if an empty space replace it with %20
   } else {
-    return string[0] + replaceSpaceRecurse(string.substring(1));
+    return string[0] + replaceSpaceRecurse(string.substring(1)); //after function runs its course, return string with all spaces replaced
   }
 };
 
