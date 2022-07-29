@@ -5,3 +5,38 @@
 // Input: "aaabccdddda"
 // Output: "3ab2c4da"
 
+//iterative attempt
+function compress(string){
+  let output = "";
+  let count = 1;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i+1] != null && string[i] === string[i+1]) {
+      count++;
+    } else {
+      if (count > 1) {
+        output += count.toString() + string[i];
+      } else {
+        output += string[i];
+      }
+      count = 1;
+    }
+  }
+  return output;
+};
+
+console.log(compress("aaabccdddda")); //3ab2c4da
+
+//recursive attempt
+function compressRecursive(string){
+  if (string.length === 0)
+  return string;
+  let count = 1;
+  for (let i = 0; string[i] === string[i+1]; i++) count++;
+  if (count > 1) {
+    return count.toString() + string[0] + compressRecursive(string.substring(count));
+  } else {
+    return string[0] + compressRecursive(string.substring(1));
+  }
+};
+
+console.log(compressRecursive("aaabccdddda"));
