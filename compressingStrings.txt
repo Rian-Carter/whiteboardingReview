@@ -1,0 +1,46 @@
+// Question #3: Compressing Strings
+// Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
+
+// Example
+// Input: "aaabccdddda"
+// Output: "3ab2c4da"
+
+//iterative attempt
+function compress(string){                                        //function that take string as an argument
+  let output = "";                                                //set output to an empty string
+  let count = 1;                                                  //set count to 1
+  for (let i = 0; i < string.length; i++) {                       //set up for loop
+    if (string[i+1] != null && string[i] === string[i+1]) {       //check to see if string is not null and compare the strings
+      count++;                                                    //increment count by 1 if duplicate is found
+    } else {
+      if (count > 1) {                                            //set parameter to check if count is greater than 1
+        output += count.toString() + string[i];                   //if count is greater than 1 add the value to the variable and assign the result
+      } else {
+        output += string[i];                                      //add value of string to output variable
+      }
+      count = 1;
+    }
+  }
+  return output;                                                  //return output
+};
+
+console.log(compress("aaabccdddda"));
+
+//recursive attempt
+function compressRecursive(string){                                                     //function that takes string as an argument
+  if (string.length === 0)                                                              //if an empty string is passed in return and when the string becomes empty
+  return string;                                                                        //return the string
+  let count = 1;                                                                        //set count to 1
+  for (let i = 0; string[i] === string[i+1]; i++) count++;                              //set up for loop and compare the strings and increment count by 1 if duplicate found
+  if (count > 1) {                                                                      //if the count is greater than 1 move on
+    return count.toString() + string[0] + compressRecursive(string.substring(count));   //return count converted to a string while adding value to index/position of 0, call function again passing in count to the string using the substring method
+  } else {
+    return string[0] + compressRecursive(string.substring(1));                          //return string starting at index/position 0 and add the value of the function that takes string as an argument 
+  }                                                                                     //using the substring method with and "endpoint" of 1    
+};
+
+console.log(compressRecursive("aaabccdddda")); //3ab2c4da
+
+// https://rebecca-ap-rosenberg.medium.com/string-compression-algorithm-javascript-style-c0213dbc94ad
+// https://www.youtube.com/watch?v=Q0alTGQ-lXk
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
