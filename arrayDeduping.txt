@@ -1,0 +1,44 @@
+// Question #2: Array Deduping
+
+// Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
+
+// Example
+// Input: [7, 9, "hi", 12, "hi" 7, 53]
+// Output: [7, 9, "hi", 12, 53]
+
+// iterative attempt
+function deduping(array){
+  let output = [];
+  array.forEach((element, i) => {
+    if (!array.slice(0, i).includes(element)) output.push(element);
+  });
+  return output;
+};
+
+console.log(deduping([7, 9, "hi", 12, "hi", 7, 53]));             // [ 7, 9, 'hi', 12, 53 ]
+
+// recursive attempt
+function dedupingRecursive(array){                                //creates function 'dudupingRecursive' that takes 'array' as an argument
+  const crossReference = array.slice(0, array.length -1);         //variable that slices an array at index 0 with a -1 end point. This creates an offset to extract the last element in the sequence
+  // console.log(crossReference);
+  const checkElement = array[array.length -1];
+  // console.log(checkElement);
+  if (array.length === 0) {                                       //base case to return an array once it's empty
+    return array;
+  } else if (crossReference.includes(checkElement)) {             //checks to see if the array contains an element
+    return dedupingRecursive(crossReference);                     //calls original function taking 'crossReference' as an argument
+  } else {
+    return [...dedupingRecursive(crossReference), checkElement];  //returns a shallow clone of original function with 'crossReference' as an argument
+  }
+};
+
+console.log(dedupingRecursive([7, 9, "hi", 12, "hi", 7, 53]));    // [ 7, 9, 'hi', 12, 53 ]
+
+
+// filter attempt
+
+function removeDuplicate(array) {
+  return array.filter((element, index) => array.indexOf(element) === index);    //Using filter() to create a new array of elements that pass the condition we provide. It will include only those elements
+};                                                                              //for which true is returned. Removing duplicates from the array by adjusting our condition.
+
+console.log(removeDuplicate([7, 9, "hi", 12, "hi", 7, 53]));
