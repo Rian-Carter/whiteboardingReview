@@ -28,8 +28,17 @@ function dedupingRecursive(array){ //creates function 'dudupingRecursive' that t
   } else if (crossReference.includes(checkElement)) { //checks to see if the array contains an element
     return dedupingRecursive(crossReference); //calls original function taking 'crossReference' as an argument
   } else {
-    return [...dedupingRecursive(crossReference), checkElement]; //returns a shallow clone of original function with 'crossReference' 
+    return [...dedupingRecursive(crossReference), checkElement]; //returns a shallow clone of original function with 'crossReference' as an argument
   }
 };
 
 console.log(dedupingRecursive([7, 9, "hi", 12, "hi", 7, 53])); // [ 7, 9, 'hi', 12, 53 ]
+
+
+// filter attempt
+
+function removeDuplicate(array) {
+  return array.filter((element, index) => array.indexOf(element) === index);    //Using filter() to create a new array of elements that pass the condition we provide. It will include only those elements
+};                                                                              //for which true is returned. Removing duplicates from the array by adjusting our condition.
+
+console.log(removeDuplicate([7, 9, "hi", 12, "hi", 7, 53]));
