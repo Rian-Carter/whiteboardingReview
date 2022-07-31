@@ -1,0 +1,41 @@
+//Prompt 4 is the prompt I received for my whiteboarding session
+//Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+//input 'hello'
+//output false
+
+//input 'copyright'
+//output true
+
+//create a function that takes an argument (string)
+//if the strings length is equal to 1 continue to function and also return true, if string length <1 back out of function and return false
+//for loop
+//interate through the string and look for duplicates
+
+//first example
+function checkUniqueness(string) {
+  if(string.length === 1) {
+    return true;
+  }
+  for (let i = 1; i < string.length; i++) {
+    if (string[0] === string[i])
+    return false;
+  }
+  return checkUniqueness(string.substring(1));
+}
+
+console.log(checkUniqueness('hello')) //false
+console.log(checkUniqueness('copyright')) //true
+
+//second example
+function unique(string){
+  for(let i = 0; i < string.length; i++)
+    for(let j = 1 + 1; j < string.length; j++)
+      if (string[i] === string[j])
+      return false;
+} else {
+  return true;
+};
+
+console.log(checkUniqueness('hello')) //false
+console.log(checkUniqueness('copyright')) //true
